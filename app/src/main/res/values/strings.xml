@@ -7,10 +7,16 @@
     <string name="fragment_list_add_new_task">Add new task</string>
     <string name="fragment_list_no_data_found">No Data Found.</string>
     <string name="fragment_list_content_description_image_sad_face">Image sad face</string>
+    <string name="fragment_list_menu_sort_by">Sort By</string>
+    <string name="fragment_list_menu_priority_high">Priority High</string>
+    <string name="fragment_list_menu_priority_medium">Priority Medium</string>
+    <string name="fragment_list_menu_delete_all">Delete All</string>
 
     <!-- Fragment Add -->
     <string name="fragment_add_title">Title</string>
     <string name="fragment_add_description">Description</string>
+    <string name="list_fragment_menu_search">search</string>
+
 
     <string-array name="priorities">
         <item>High Priority</item>
