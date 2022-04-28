@@ -2,4 +2,7 @@
     <string name="app_name">ToDoApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_list_add_new_task">Add new task</string>
+    <string name="fragment_list_no_data_found">No Data Found.</string>
+    <string name="fragment_list_content_description_image_sad_face">Image sad face</string>
 </resources>

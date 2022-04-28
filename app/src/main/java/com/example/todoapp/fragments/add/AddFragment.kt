@@ -10,7 +10,7 @@ import com.example.todoapp.databinding.FragmentAddBinding
 class AddFragment : Fragment() {
 
     private var _binding: FragmentAddBinding? = null
-    private val binding = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
