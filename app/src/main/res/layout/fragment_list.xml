@@ -28,7 +28,7 @@
         android:contentDescription="@string/fragment_list_add_new_task"
         android:focusable="true"
         android:src="@drawable/ic_add"
-        android:tint="@color/white"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
