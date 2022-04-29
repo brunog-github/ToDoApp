@@ -17,6 +17,8 @@
     <string name="fragment_add_description">Description</string>
     <string name="list_fragment_menu_search">search</string>
     <string name="add_fragment_menu_add">Add</string>
+    <string name="update_fragment_menu_save">Save</string>
+    <string name="update_fragment_menu_delete">Delete</string>
 
 
     <string-array name="priorities">
