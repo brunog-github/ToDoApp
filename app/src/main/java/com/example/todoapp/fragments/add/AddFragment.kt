@@ -1,10 +1,9 @@
 package com.example.todoapp.fragments.add
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import com.example.todoapp.R
 import com.example.todoapp.databinding.FragmentAddBinding
 
 class AddFragment : Fragment() {
@@ -18,7 +17,13 @@ class AddFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentAddBinding.inflate(inflater, container ,false)
+
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.add_fragment_menu, menu)
     }
 
     override fun onDestroyView() {

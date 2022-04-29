@@ -11,7 +11,7 @@
         android:id="@+id/edit_text_current_title"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/custom_input"
         android:ems="10"
         android:hint="@string/fragment_add_title"
