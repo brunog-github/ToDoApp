@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.example.todoapp.data.model.ToDoData
@@ -29,24 +30,33 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
             with(dataList[position]) {
                 binding.textViewTitle.text = title
                 binding.textViewDescription.text = description
+                binding.rowBackground.setOnClickListener {
+                    val toDoItem = ToDoData(
+                        title = title,
+                        priority = priority,
+                        description = description
+                    )
+                    val action = ListFragmentDirections.actionListFragmentToUpdateFragment(toDoItem)
+                    itemView.findNavController().navigate(action)
+                }
 
                 when (priority) {
                     Priority.HIGH -> {
                         binding.priorityIndicator
                             .setCardBackgroundColor(
-                                ContextCompat.getColor(holder.itemView.context, R.color.red)
+                                ContextCompat.getColor(itemView.context, R.color.red)
                             )
                     }
                     Priority.MEDIUM -> {
                         binding.priorityIndicator
                             .setCardBackgroundColor(
-                                ContextCompat.getColor(holder.itemView.context, R.color.yellow)
+                                ContextCompat.getColor(itemView.context, R.color.yellow)
                             )
                     }
                     else -> {
                         binding.priorityIndicator
                             .setCardBackgroundColor(
-                                ContextCompat.getColor(holder.itemView.context, R.color.green)
+                                ContextCompat.getColor(itemView.context, R.color.green)
                             )
                     }
                 }
