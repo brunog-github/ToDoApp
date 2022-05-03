@@ -9,4 +9,6 @@ class ToDoRepository(private val toDoDao: ToDoDao) {
     val getAllData: LiveData<List<ToDoData>> = toDoDao.getAllData()
 
     suspend fun insert(toDoData: ToDoData) = toDoDao.insertData(toDoData = toDoData)
+
+    suspend fun update(toDoData: ToDoData) = toDoDao.updateData(toDoData = toDoData)
 }

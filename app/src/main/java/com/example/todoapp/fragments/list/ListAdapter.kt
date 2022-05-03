@@ -32,6 +32,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
                 binding.textViewDescription.text = description
                 binding.rowBackground.setOnClickListener {
                     val toDoItem = ToDoData(
+                        id = id,
                         title = title,
                         priority = priority,
                         description = description
