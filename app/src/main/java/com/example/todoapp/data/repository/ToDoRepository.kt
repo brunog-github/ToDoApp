@@ -15,4 +15,8 @@ class ToDoRepository(private val toDoDao: ToDoDao) {
     suspend fun delete(toDoData: ToDoData) = toDoDao.deleteData(toDoInt = toDoData)
 
     suspend fun deleteAll() = toDoDao.deleteAllData()
+
+    fun searchDatabase(searchQuery: String): LiveData<List<ToDoData>> {
+        return toDoDao.searchDatabase(searchQuery)
+    }
 }
