@@ -2,10 +2,15 @@ package com.example.todoapp.fragments
 
 import android.view.View
 import android.widget.Spinner
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import com.example.todoapp.R
+import com.example.todoapp.data.model.ToDoData
+import com.example.todoapp.fragments.list.ListFragmentDirections
 import com.example.todoapp.util.Priority
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -38,6 +43,37 @@ class BindingAdapters {
                 Priority.LOW -> view.setSelection(2)
                 Priority.MEDIUM -> view.setSelection(1)
                 Priority.HIGH-> view.setSelection(0)
+            }
+        }
+
+        @BindingAdapter("android:parsePriorityColor")
+        @JvmStatic
+        fun parsePriorityColor(cardView: CardView, priority: Priority) {
+            when(priority) {
+                Priority.HIGH -> {
+                    cardView.setCardBackgroundColor(
+                        ContextCompat.getColor(cardView.context, R.color.red)
+                    )
+                }
+                Priority.MEDIUM -> {
+                    cardView.setCardBackgroundColor(
+                        ContextCompat.getColor(cardView.context, R.color.yellow)
+                    )
+                }
+                Priority.LOW -> {
+                    cardView.setCardBackgroundColor(
+                        ContextCompat.getColor(cardView.context, R.color.green)
+                    )
+                }
+            }
+        }
+
+        @BindingAdapter("android:sendDataToUpdateFragment")
+        @JvmStatic
+        fun sendDataToUpdateFragment(view: ConstraintLayout, currentItem: ToDoData) {
+            view.setOnClickListener {
+                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+                view.findNavController().navigate(action)
             }
         }
     }
