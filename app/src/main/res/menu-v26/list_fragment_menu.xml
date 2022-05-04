@@ -21,7 +21,7 @@
                     android:title="@string/fragment_list_menu_priority_high"/>
                 <item
                     android:id="@+id/menu_priority_low"
-                    android:title="@string/fragment_list_menu_priority_medium"/>
+                    android:title="@string/fragment_list_menu_priority_low"/>
             </menu>
 
         </item>

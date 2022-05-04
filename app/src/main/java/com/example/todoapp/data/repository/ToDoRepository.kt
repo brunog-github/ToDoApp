@@ -7,6 +7,8 @@ import com.example.todoapp.data.model.ToDoData
 class ToDoRepository(private val toDoDao: ToDoDao) {
 
     val getAllData: LiveData<List<ToDoData>> = toDoDao.getAllData()
+    val sortByHighPriority: LiveData<List<ToDoData>> = toDoDao.sortByHighPriority()
+    val sortByLowPriority: LiveData<List<ToDoData>> = toDoDao.sortByLowPriority()
 
     suspend fun insert(toDoData: ToDoData) = toDoDao.insertData(toDoData = toDoData)
 
