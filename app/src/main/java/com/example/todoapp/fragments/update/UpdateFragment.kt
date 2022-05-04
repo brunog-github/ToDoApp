@@ -30,13 +30,9 @@ class UpdateFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentUpdateBinding.inflate(inflater, container, false)
+        binding.args = args
 
-        binding.editTextCurrentTitle.setText(args.currentItem.title)
-        binding.editTextCurrentDescription.setText(args.currentItem.description)
-        binding.currentPrioritiesSpinner.apply {
-            setSelection(sharedViewModel.parsePriorityToInt(args.currentItem.priority))
-            onItemSelectedListener = sharedViewModel.listener
-        }
+        binding.currentPrioritiesSpinner.onItemSelectedListener = sharedViewModel.listener
 
         setHasOptionsMenu(true)
         return binding.root
