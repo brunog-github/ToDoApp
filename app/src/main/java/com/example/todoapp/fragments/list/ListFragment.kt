@@ -3,7 +3,6 @@ package com.example.todoapp.fragments.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import android.widget.GridLayout
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -33,7 +32,7 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentListBinding.inflate(inflater, container, false)
 
@@ -75,14 +74,14 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
                 toDoViewModel.deleteData(deletedItem)
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
                 // Restore Deleted Item
-                restoreDeletedData(viewHolder.itemView, deletedItem, viewHolder.adapterPosition)
+                restoreDeletedData(viewHolder.itemView, deletedItem)
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
-    private fun restoreDeletedData(view: View, deletedItem: ToDoData, position: Int) {
+    private fun restoreDeletedData(view: View, deletedItem: ToDoData) {
         val snackBar = Snackbar.make(
             view,
             "Deleted '${deletedItem.title}'",
@@ -90,7 +89,6 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         )
         snackBar.setAction("Undo") {
             toDoViewModel.insertData(deletedItem)
-            adapter.notifyItemChanged(position)
         }
         snackBar.show()
     }
