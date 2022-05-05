@@ -15,6 +15,7 @@ import com.example.todoapp.databinding.FragmentListBinding
 import com.example.todoapp.fragments.SharedViewModel
 import com.example.todoapp.fragments.list.adapter.ListAdapter
 import com.example.todoapp.util.Constants.GRID_LAYOUT_SPAN_COUNT
+import com.example.todoapp.util.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
@@ -45,6 +46,8 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
             sharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
         }
+
+        hideKeyboard(requireActivity())
 
         setHasOptionsMenu(true)
 

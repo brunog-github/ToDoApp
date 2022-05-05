@@ -1,5 +1,7 @@
 package com.example.todoapp.fragments
 
+import android.content.Context
+import android.os.Build
 import android.view.View
 import android.widget.Spinner
 import androidx.cardview.widget.CardView
@@ -51,19 +53,13 @@ class BindingAdapters {
         fun parsePriorityColor(cardView: CardView, priority: Priority) {
             when(priority) {
                 Priority.HIGH -> {
-                    cardView.setCardBackgroundColor(
-                        ContextCompat.getColor(cardView.context, R.color.red)
-                    )
+                    cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))
                 }
                 Priority.MEDIUM -> {
-                    cardView.setCardBackgroundColor(
-                        ContextCompat.getColor(cardView.context, R.color.yellow)
-                    )
+                    cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))
                 }
                 Priority.LOW -> {
-                    cardView.setCardBackgroundColor(
-                        ContextCompat.getColor(cardView.context, R.color.green)
-                    )
+                    cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))
                 }
             }
         }
